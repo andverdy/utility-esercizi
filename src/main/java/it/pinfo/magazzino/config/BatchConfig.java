@@ -1,7 +1,6 @@
 package it.pinfo.magazzino.config;
 
 import java.util.List;
-
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -10,8 +9,6 @@ import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import it.pinfo.magazzino.entity.InterventoTecnico;
 import it.pinfo.magazzino.entity.PartiRicambio;
 import it.pinfo.magazzino.service.VariabiliDbService;
 import it.pinfo.magazzino.service.PartiRicambioService;
@@ -30,7 +27,7 @@ public class BatchConfig {
 
 	@Autowired
 	public PartiRicambioService partiService;
-	
+
 	@Autowired
 	private VariabiliDbService variabiliDbServ;
 
@@ -41,8 +38,9 @@ public class BatchConfig {
 
 	@Bean
 	public Step step1() {
-		return stepBuilderFactory.get("step1").<List<Object>, List<PartiRicambio>>chunk(0).reader(new Reader(variabiliDbServ))
-				.processor(new Processor(partiService)).writer(new Writer(partiService, variabiliDbServ)).build();
+		return stepBuilderFactory.get("step1").<List<Object>, List<PartiRicambio>>chunk(0)
+				.reader(new Reader(variabiliDbServ)).processor(new Processor(partiService))
+				.writer(new Writer(partiService, variabiliDbServ)).build();
 	}
 
 }

@@ -3,17 +3,13 @@ package it.pinfo.magazzino.service.impl;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
-
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import it.pinfo.magazzino.entity.PartiRicambio;
 import it.pinfo.magazzino.repository.PartiRicambioRepository;
 import it.pinfo.magazzino.service.ExcelFileDownloadService;
@@ -33,9 +29,6 @@ public class ExcelFileDownloadServiceImpl implements ExcelFileDownloadService {
 			int rownum = 0, index = 0, cellOrdernum = 0;
 			HSSFSheet sheet = workbook.createSheet();
 			FileOutputStream out = null;
-			// String orderNumber = Integer.toString(order.getNumero());
-			DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-			//String dataParse = df.format(listPartiRicambioInCarico.get(index).getDataMovimento());
 			Row row1 = sheet.createRow(rownum++);
 			Cell cell1 = row1.createCell(cellOrdernum++);
 			cell1.setCellValue("ID PARTE");

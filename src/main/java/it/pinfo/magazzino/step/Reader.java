@@ -3,10 +3,8 @@ package it.pinfo.magazzino.step;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -17,7 +15,6 @@ import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
-
 import it.pinfo.magazzino.entity.VariabiliDb;
 import it.pinfo.magazzino.entity.InterventoTecnico;
 import it.pinfo.magazzino.entity.Movimento;
@@ -79,8 +76,8 @@ public class Reader implements ItemReader<List<Object>> {
 					intervento.setTipoIntervento(tipo);
 
 					cell = row.getCell(cellOrdernum++);
-					Integer idCliente = (int) cell.getNumericCellValue();
-					intervento.setIdCliente(idCliente);
+					String cliente = cell.getStringCellValue();
+					intervento.setCliente(cliente);
 
 					listOb.add(intervento);
 					cellOrdernum = 0;
@@ -132,8 +129,8 @@ public class Reader implements ItemReader<List<Object>> {
 					movimento.setTipoMovimento(tipo);
 
 					cell = row.getCell(cellOrdernumMovim++);
-					Integer idCliente = (int) cell.getNumericCellValue();
-					movimento.setIdCliente(idCliente);
+					String cliente = cell.getStringCellValue();
+					movimento.setCliente(cliente);
 
 					listOb.add(movimento);
 					cellOrdernumMovim = 0;

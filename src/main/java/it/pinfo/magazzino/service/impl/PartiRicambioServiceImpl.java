@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.pinfo.magazzino.entity.Cliente;
 import it.pinfo.magazzino.entity.PartiRicambio;
-import it.pinfo.magazzino.repository.ClienteRepository;
 import it.pinfo.magazzino.repository.PartiRicambioRepository;
 import it.pinfo.magazzino.service.PartiRicambioService;
 
@@ -16,9 +14,6 @@ public class PartiRicambioServiceImpl implements PartiRicambioService {
 
 	@Autowired
 	private PartiRicambioRepository partiRepo;
-
-	@Autowired
-	private ClienteRepository clienteRepo;
 
 	@Override
 	public List<PartiRicambio> findAll() {

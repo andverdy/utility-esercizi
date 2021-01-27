@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable().cors().and()
-        .authorizeRequests().antMatchers("/api/authenticate", "/api/register").permitAll()
+        .authorizeRequests().antMatchers("/api/user/getId-byUsername", "/api/user/role-save","/api/authenticate", "/api/register", "/api/user/roleIsAuth-byUsername").permitAll()
         .antMatchers("/api/user/getId-byEmail").hasAnyAuthority("MAGAZZINIERE", "ADMIN")
         .antMatchers("/api/user/get-byUsername").hasAnyAuthority("MAGAZZINIERE", "ADMIN")
         

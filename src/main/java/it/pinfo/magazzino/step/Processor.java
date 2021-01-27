@@ -53,7 +53,7 @@ public class Processor implements ItemProcessor<List<Object>, List<PartiRicambio
 
 				PartiRicambio parteGuasta = new PartiRicambio();
 				parteGuasta.setMatricola(intervento.getMatricolaParteOld());
-				parteGuasta.setCliente(intervento.getIdCliente());
+				parteGuasta.setCliente(intervento.getCliente());
 				parteGuasta.setCondizioniParte("GUASTO");
 				parteGuasta.setAggiornato(true);
 				parti.add(parteGuasta);
@@ -66,7 +66,7 @@ public class Processor implements ItemProcessor<List<Object>, List<PartiRicambio
 			if (movimento.getTipoMovimento().equals("IN ENTRATA")) {
 				PartiRicambio parteInEntrata = new PartiRicambio();
 				parteInEntrata.setCondizioniParte(movimento.getCondizioniParte());
-				parteInEntrata.setCliente(movimento.getIdCliente());
+				parteInEntrata.setCliente(movimento.getCliente());
 				parteInEntrata.setMatricola(movimento.getMatricolaParte());
 				parteInEntrata.setDescParte(movimento.getDescrizioneParte());
 				parteInEntrata.setAggiornato(true);

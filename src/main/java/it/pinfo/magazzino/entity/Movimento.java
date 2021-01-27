@@ -1,19 +1,14 @@
 package it.pinfo.magazzino.entity;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -42,8 +37,8 @@ public class Movimento {
 	@Column(name = "data_Movimento")
 	private Date dataMovimento;
 
-	@Column(name = "id_cliente")
-	private Integer idCliente;
+	@Column(name = "cliente")
+	private String cliente;
 
 	public Integer getIdMovimento() {
 		return idMovimento;
@@ -85,12 +80,12 @@ public class Movimento {
 		this.dataMovimento = dataMovimento;
 	}
 
-	public Integer getIdCliente() {
-		return idCliente;
+	public String getCliente() {
+		return cliente;
 	}
 
-	public void setIdCliente(Integer idCliente) {
-		this.idCliente = idCliente;
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getDescrizioneParte() {
@@ -105,7 +100,7 @@ public class Movimento {
 	public String toString() {
 		return "Movimento [idMovimento=" + idMovimento + ", matricolaParte=" + matricolaParte + ", descrizioneParte="
 				+ descrizioneParte + ", tipoMovimento=" + tipoMovimento + ", condizioniParte=" + condizioniParte
-				+ ", dataMovimento=" + dataMovimento + ", idCliente=" + idCliente + "]";
+				+ ", dataMovimento=" + dataMovimento + ", idCliente=" + cliente + "]";
 	}
 
 }

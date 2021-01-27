@@ -1,18 +1,11 @@
 package it.pinfo.magazzino.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "parti_ricambio")
@@ -38,8 +31,8 @@ public class PartiRicambio {
 	@Column(name = "condizioni_parte")
 	private String condizioniParte;
 
-	@Column(name = "id_cliente")
-	private Integer cliente;
+	@Column(name = "cliente")
+	private String cliente;
 
 	public Long getIdParte() {
 		return idParte;
@@ -81,11 +74,11 @@ public class PartiRicambio {
 		this.condizioniParte = condizioniParte;
 	}
 
-	public Integer getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Integer cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 

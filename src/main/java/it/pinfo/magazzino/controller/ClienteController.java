@@ -37,8 +37,8 @@ public class ClienteController {
 	}
 
 	@GetMapping("/findBy-id")
-	public Cliente findById(@RequestParam Integer id) {
-		return clienteServ.findById(id);
+	public Cliente findById(@RequestParam Integer idCliente) {
+		return clienteServ.findById(idCliente);
 	}
 
 }
